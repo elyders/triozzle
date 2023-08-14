@@ -46,7 +46,7 @@ def setup_game():
     global curr_round
     global num_of_errors
     global timerElement
-    
+
     game_status = "setting"
     
     # Loop thru every row/column combo and hide each btn
@@ -229,7 +229,7 @@ def reset_header():
 
     timerElement.write(0.0)
 #################################################
-def start_game():
+def start_game(game_type):
     global start_time
     global game_status
     global curr_round
@@ -237,8 +237,13 @@ def start_game():
     global intervalId
     global timerElement
     global timerVal
+    global rng
+
+    if game_type == 'practice':
+        rng = np.random.default_rng()
 
     handle_msg(0,f"Seed:{rng_seed}")
+
     curr_round += 1
     if curr_round > total_rounds:
         game_status = "winner"
@@ -481,7 +486,7 @@ def handle_msg(msg_type, msg_text):
     else:
         # Store these in a debug file once app in production ready
         x = 1
-        print(msg_text)
+        #print(msg_text)
 
 #################################################
 ########## OLD CODE #############################
