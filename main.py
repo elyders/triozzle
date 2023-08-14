@@ -303,6 +303,7 @@ def start_game(type):
 #################################################
 def end_game():
     global game_status
+    global game_type
 
     # stop timer
     js.clearInterval(intervalId);
@@ -316,6 +317,12 @@ def end_game():
             btn.add_class("btn_hidden")
             btn.remove_class("btn_shown")
     
+    # Set end title based on game_type
+    if game_type == "daily":
+        document.getElementById("endTitle").innerHTML = "Triozzle Daily Challenge"
+    else:
+        document.getElementById("endTitle").innerHTML = "Triozzle Practice"
+
     # Show player's final score
     handle_msg(0,f"game_status:{game_status}")
     if game_status == "winner":
