@@ -11,6 +11,7 @@ game_result = "??"
 start_time = 0.0
 end_time = 0.0
 game_status = "loading"
+game_type = "daily"
 total_rounds = 10
 curr_round = 0
 round_times = [0 for i in range(total_rounds)]
