@@ -229,7 +229,7 @@ def reset_header():
 
     timerElement.write(0.0)
 #################################################
-def start_game(game_type):
+def start_game(type):
     global start_time
     global game_status
     global curr_round
@@ -238,7 +238,9 @@ def start_game(game_type):
     global timerElement
     global timerVal
     global rng
+    global game_type
 
+    game_type = type
     if game_type == 'practice':
         rng = np.random.default_rng()
 
@@ -444,9 +446,10 @@ def update_header(correct):
     global num_of_errors
     global errors_allowed
     global game_status
+    global game_type
 
     if correct:
-        start_game()
+        start_game(game_type)
     else:
         num_of_errors += 1
         if num_of_errors > errors_allowed:
