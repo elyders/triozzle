@@ -11,7 +11,7 @@ game_result = "??"
 start_time = 0.0
 end_time = 0.0
 game_status = "loading"
-game_type = "daily"
+game_type = 'daily'
 total_rounds = 10
 curr_round = 0
 round_times = [0 for i in range(total_rounds)]
@@ -241,8 +241,8 @@ def start_game(type):
     global rng
     global game_type
 
-    game_type = type
-    if game_type == 'practice':
+    if type == 'practice':
+        game_type = type
         rng = np.random.default_rng()
 
     handle_msg(0,f"Seed:{rng_seed}")
@@ -318,7 +318,7 @@ def end_game():
             btn.remove_class("btn_shown")
     
     # Set end title based on game_type
-    if game_type == "daily":
+    if game_type == 'daily':
         document.getElementById("endTitle").innerHTML = "Triozzle Daily Challenge"
     else:
         document.getElementById("endTitle").innerHTML = "Triozzle Practice"
