@@ -3,207 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="style.css">
     <title>Triozzle</title>
     <!-- linking to PyScript assets -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
-    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
-	<style>
-		body {
-			display: grid;
-			place-items: center;
-			height: 90vh;
-			font-family: Arial, sans-serif;
-			font-size: 100%;
-
-		}
-
-		#grid {
-			display: none;
-			Xborder: 3px solid green;
-			height: 50vh;
-			width: 50vh;
-		}
-		
-		#startOverlay {
-			height: 5vh;
-			width: 50vh;
-			justify-content: center;
-			display: flex;
-			Xborder: 3px solid brown;
-		}
-		
-		.gamebartop {
-			Xborder: 3px solid red;
-			height: 5vh;
-			width: 50vh;
-			font-size: 1.5em;
-			text-align: center;
-		}
-		
-		.gamebarbottom {
-			Xborder: 3px solid red;
-			height: 5vh;
-			width: 16vh;
-			font-size: 1.5em;
-			text-align: center;
-		}
-		
-		.gamebartop_span {
-			grid-template-columns: repeat(1, 1fr);
-			grid-template-rows: repeat(2, 1fr);
-			Xborder: 3px solid yellow;
-			height: 11vh;
-			width: 50vh;
-			display: none;
-			justify-content: center;
-		}
-		
-		.gamebarbottom_span {
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 1fr);
-			Xborder: 3px solid yellow;
-			height: 11vh;
-			width: 50vh;
-			display: none;
-			justify-content: center;
-		}
-		
-		.center-grid {
-			justify-content: center;
-		}
-
-		.gridS {
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(3, 1fr);
-		}
-		
-		.gridM {
-			grid-template-columns: repeat(5, 1fr);
-			grid-template-rows: repeat(5, 1fr);
-		}
-		
-		.gridL {
-			grid-template-columns: repeat(10, 1fr);
-			grid-template-rows: repeat(10, 1fr);
-			padding-top: 3px;
-			gap: 3px;
-			box-sizing: content-box;
-		}
-		
-		.py-button {
-			background: url('https://drive.google.com/uc?export=view&id=1gsEg-0xnadPcHTcEyBu6ZuIdpGpSXN5X') center/cover;
-			background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
-			background: url('https://drive.google.com/uc?export=view&id=1Ojb3E0gNgMem0HbId-HsCY6VimlKjekE') center/cover;
-			background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
-			background: url('https://drive.google.com/uc?export=view&id=1HtSlekxn-g7nsYy2MDbXXHzGDYmCwFiW') center/cover;
-			color: white;
-			text-align: center;
-			font-size: 1.5em;
-			cursor: pointer;
-			height: 100%;
-			width: 100%;
-			border: none;
-		}
-
-		.btn_shown {
-			display: grid;
-		}
-		
-		.btn_hidden {
-			display: none;
-		}
-		
-		.btn_result {
-			Xborder: 3px solid blue;
-		}
-		
-		.btn_chosen {
-			Xborder: 3px solid red;
-			background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
-			background-repeat:no-repeat
-		}
-
-		.btn_error {
-			background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
-			background-repeat:no-repeat
-		}
-
-		.timer {
-			background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
-			background-repeat:no-repeat;
-		}
-		
-		.result {
-			background: url('https://drive.google.com/uc?export=view&id=1gsEg-0xnadPcHTcEyBu6ZuIdpGpSXN5X') center/cover;
-			background-repeat:no-repeat;
-			color: black;
-		}
-		
-		.errors {
-			background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
-			background-repeat:no-repeat;
-		}
-		
-		.round {
-			background: url('https://drive.google.com/uc?export=view&id=1Ojb3E0gNgMem0HbId-HsCY6VimlKjekE') center/cover;
-			background-repeat:no-repeat;
-		}
-		
-		.overlay {
-		  height: 100vh;
-		  width: 0;
-		  position: fixed;
-		  z-index: 1;
-		  top: 0;
-		  left: 0;
-		  background-color: rgb(12,100,73);
-		  background-color: rgba(12,100,73, 0.9);
-		  overflow-x: hidden;
-		  transition: 0.5s;
-		}
-
-		.overlay-content {
-		  position: relative;
-		  top: 5%;
-		  width: 100%;
-		  text-align: center;
-		  margin-top: 30px;
-		}
-
-		.overlay p {
-		  padding: 8px;
-		  text-decoration: none;
-		  font-size: 1.5em;
-		  color: #818181;
-		  display: block;
-		  transition: 0.3s;
-		}
-
-		.overlay p:hover, .overlay p:focus {
-		  color: #f1f1f1;
-		}
-
-		@media screen and (max-height: 450px) {
-		  .overlay p {font-size: 1.5em}
-		}
-	</style>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	<script src="https://raw.githubusercontent.com/elyders/triozzle/main/index.js"></script>
   </head>
   <body>
 	<div id="endOverlay" class="overlay">
-	  <div class="overlay-content">
-		<img id="star" src="https://drive.google.com/uc?export=view&id=18rP3iDqwSYCsDlbN1_Wu4PemTmXpV7Gz" alt="star" width="150" height="150">
-		<p id="endScore">0</p>
-		<p id="endTimes">0</p>
-		<p id="endDateTime"></p>
-		<p id="nextgameDateTime"></p>
-	  </div>
-	</div>
+		<div class="overlay-content">
+			<p id="endTitle">X</p>
+			<img id="star" src="https://drive.google.com/uc?export=view&id=18rP3iDqwSYCsDlbN1_Wu4PemTmXpV7Gz" alt="star" width="150" height="150">
+			<p id="endScore">0</p>
+			<p id="endTimes">0</p>
+			<p id="endDateTime"></p>
+			<p id="nextgameDateTime"></p>
+
+			<button id="shareBtn" py-click="copyResults()" class="py-button">Share Results</button>
+		</div>
+   </div>
 	<div id="main" class="center-grid">
 		<div id="startOverlay">
 			<span>
-				<button id="start" py-click="start_game()" class="py-button">Start</button>
+				<div>
+					<button id="start" py-click="start_game('daily')" class="py-button">Daily Challenge</button>
+					<p align="center"> ... OR ...</p>
+					<button id="practice" py-click="start_game('practice')" class="py-button btn_error">Practice</button>
+				</div>
 				<br>
-				<p><b>How to play:</b>
+				<p><b>How to play Triozzle:</b>
 				<br>Solve for the result shown in the yellow box at the top.
 				<br>You're given a 10x10 grid filled with numbers from 0 to 9.
 				<br>Click 3 numbers in the grid that are in a line (left, right, up, down or diagonally) that make up the result when the first 2 numbers are multiplied and the 3rd number is either subtracted or added from their product: (A x B) +/- C = Result
@@ -215,6 +44,7 @@
 				<br>
 				<br><b>Tips:</b>
 				<li>You can deselect a number by clicking it again</li>
+				<li>There is only 1 Triozzle Daily Challenge per day</li>
 <!--				<li>You can only play once per day. New puzzles appear at the start of the day (UTC time) -->
 				</p>
 			</span>
@@ -338,7 +168,10 @@
     <py-config>
 		packages = ['numpy']
 		terminal = false
+		[[fetch]]
+		from = "https://raw.githubusercontent.com/elyders/triozzle/main/"
+		files = ["main.py"]
 	</py-config>
-	<py-script src="./main.py"></py-script>
+	<py-script src="https://raw.githubusercontent.com/elyders/triozzle/main/main.py"></py-script>
   </body>
 </html>
