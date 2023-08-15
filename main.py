@@ -338,7 +338,11 @@ def end_game():
 
     elif game_status == "loser":
         document.getElementById("endScore").innerHTML = "Better luck next time"
-        document.getElementById("endTimes").innerHTML = "You can try again tomorrow"
+        if game_type == 'daily':
+            document.getElementById("endTimes").innerHTML = "You can try again tomorrow"
+        else:
+            document.getElementById("endTimes").innerHTML = "Keep practicing!"
+          
 
     # Get current date/time
     current_time = time.gmtime()
