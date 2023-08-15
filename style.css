@@ -1,0 +1,209 @@
+body {
+	display: grid;
+	place-items: center;
+	height: 90vh;
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+
+}
+
+#grid {
+	display: none;
+	Xborder: 3px solid green;
+	height: 50vh;
+	width: 50vh;
+}
+
+#startOverlay {
+	height: 5vh;
+	width: 50vh;
+	justify-content: center;
+	display: flex;
+	Xborder: 3px solid brown;
+}
+
+.gamebartop {
+	Xborder: 3px solid red;
+	height: 5vh;
+	width: 50vh;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.gamebarbottom {
+	Xborder: 3px solid red;
+	height: 5vh;
+	width: 16vh;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.gamebartop_span {
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	Xborder: 3px solid yellow;
+	height: 11vh;
+	width: 50vh;
+	display: none;
+	justify-content: center;
+}
+
+.gamebarbottom_span {
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	Xborder: 3px solid yellow;
+	height: 11vh;
+	width: 50vh;
+	display: none;
+	justify-content: center;
+}
+
+.center-grid {
+	justify-content: center;
+}
+
+.gridS {
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.gridM {
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+}
+
+.gridL {
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	padding-top: 3px;
+	gap: 3px;
+	box-sizing: content-box;
+}
+
+.py-button {
+	background: url('https://drive.google.com/uc?export=view&id=1gsEg-0xnadPcHTcEyBu6ZuIdpGpSXN5X') center/cover;
+	background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
+	background: url('https://drive.google.com/uc?export=view&id=1Ojb3E0gNgMem0HbId-HsCY6VimlKjekE') center/cover;
+	background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
+	background: url('https://drive.google.com/uc?export=view&id=1HtSlekxn-g7nsYy2MDbXXHzGDYmCwFiW') center/cover;
+	color: white;
+	text-align: center;
+	font-size: 1.5em;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	border: none;
+}
+
+.btn_shown {
+	display: grid;
+}
+
+.btn_hidden {
+	display: none;
+}
+
+.btn_result {
+	Xborder: 3px solid blue;
+}
+
+.btn_chosen {
+	Xborder: 3px solid red;
+	background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
+	background-repeat:no-repeat
+}
+
+.btn_error {
+	background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
+	background-repeat:no-repeat
+}
+
+.timer {
+	background: url('https://drive.google.com/uc?export=view&id=1QONmorajfvvFmFi1LQlXHlcMwWSPURzb') center/cover;
+	background-repeat:no-repeat;
+}
+
+.result {
+	background: url('https://drive.google.com/uc?export=view&id=1gsEg-0xnadPcHTcEyBu6ZuIdpGpSXN5X') center/cover;
+	background-repeat:no-repeat;
+	color: black;
+}
+
+.errors {
+	background: url('https://drive.google.com/uc?export=view&id=1EUZO9zRg_1-6pZckV_LMm4LHnBReQ90G') center/cover;
+	background-repeat:no-repeat;
+}
+
+.round {
+	background: url('https://drive.google.com/uc?export=view&id=1Ojb3E0gNgMem0HbId-HsCY6VimlKjekE') center/cover;
+	background-repeat:no-repeat;
+}
+
+.overlay {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(12,100,73);
+  background-color: rgba(12,100,73, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay p {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay p:hover, .overlay p:focus {
+  color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay p {font-size: 1.5em}
+}
+
+.share-buttons {
+   display: flex;
+   gap: 10px;
+}
+.share-button {
+   border: none;
+   border-radius: 5px;
+   color: #fff;
+   cursor: pointer;
+   font-size: 16px;
+   padding: 8px 16px;
+}
+.facebook {
+   background-color: #3b5998;
+}
+.twitter {
+   background-color: #1da1f2;
+}
+.linkedin {
+   background-color: #0077b5;
+}
+.pinterest {
+   background-color: #bd081c;
+}
+.reddit {
+   background-color: #ff4500;
+}
+.whatsapp {
+   background-color: #25d366;
+}
