@@ -4,6 +4,7 @@ import time
 from datetime import datetime, timedelta
 import asyncio
 from pyodide.ffi import to_js
+import pyperclip
 
 # global variables
 guess_list = [0 for i in range(3)]
@@ -500,59 +501,9 @@ def handle_msg(msg_type, msg_text):
         #print(msg_text)
 
 #################################################
-########## OLD CODE #############################
-########## OLD CODE #############################
-########## OLD CODE #############################
-#################################################
-# I can't get the btn_click() function to work in dynamically created/cloned buttons
-def crt_grid_old(numcells, gridclass):
-    gridEl = Element("grid")
-    gridEl.add_class(f"{gridclass}")
-    rows_cols = np.round(np.sqrt(numcells)).astype(int)
-
-    #gridElement = document.getElementById('grid')
-    #gridElement.innerHTML = ""
-    rowid = 1
-    colid = 1
-    for i in range(1,numcells+1):
-        el_to_clone = Element(f"btn{rowid}{colid}")
-        el_to_clone.remove_class("btn_chosen")	
-        # If this is NOT the first cell(11), then see if we need to start a new column or row
-        if i > 1:
-            # Mod of i and rows_cols determines which column we're on: e.g. 6%5=1, so we're on column 1
-            colid = i % rows_cols
-            if colid == 0:
-                colid = rows_cols
-            elif colid == 1:
-                rowid += 1
-            
-            # Try to get element, if it already exists so we don't recreate it... like when we start a new grid
-            try:
-                newCell = Element(f"btn{rowid}{colid}")
-                newCell.remove_class("show")	
-                newCell.remove_class("btn_chosen")	
-            except:
-                el_to_clone.clone(new_id=f"btn{rowid}{colid}")
-
-        newCell = Element(f"btn{rowid}{colid}")
-        #newBtn = Element(f"btn{rowid}{colid}")
-        cell_num = rng.integers(0, 9)
-        newCell.write(f"{cell_num}")
-        #newCell.write(f"{i}")
-        #newCell.write(f"{rowid}{colid}")
-        newJSCell = document.getElementById(f"btn{rowid}{colid}")
-        newJSCell.setAttribute("py-click",f"btn_click({rowid}{colid})")
-        #newJSBtn = newJSCell.children[0]; # get current btn child
-        #newJSBtn.setAttribute("id",f"btn{rowid}{colid}")
-        #newJSBtn.setAttribute("py-click",f"btn_click({rowid}{colid})")
-
-        # This code won't get the btn_click() to work either
-        #e = document.createElement("button")
-        #e.innerHTML = "99"
-        #e.setAttribute("id",f"btn{rowid}{colid}")
-        #e.setAttribute("py-click",f"btn_click({rowid}{colid})")
-        #e.setAttribute("class","btn_hidden")
-        #gridElement.appendChild(e)
+def copyResults():
+    copyText = document.getElementById("shareBtn").innerHTML
+    pyperclip.copy(copyText)
 
 #################################################
 
