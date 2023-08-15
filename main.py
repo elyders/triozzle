@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 import asyncio
 from pyodide.ffi import to_js
-import pyperclip3
+import pyclip as pc
 
 # global variables
 guess_list = [0 for i in range(3)]
@@ -503,7 +503,7 @@ def handle_msg(msg_type, msg_text):
 #################################################
 def copyResults():
     copyText = document.getElementById("endScore").innerHTML
-    pyperclip3.copy(copyText)
+    pc.copy(copyText)
 
 #################################################
 
