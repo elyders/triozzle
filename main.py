@@ -502,7 +502,7 @@ def handle_msg(msg_type, msg_text):
 
 #################################################
 def copyResults():
-    copyText = document.getElementById("shareBtn").innerHTML
+    copyText = document.getElementById("endScore").innerHTML
     pyperclip.copy(copyText)
 
 #################################################
