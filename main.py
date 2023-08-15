@@ -4,7 +4,6 @@ import time
 from datetime import datetime, timedelta
 import asyncio
 from pyodide.ffi import to_js
-import pyperclip
 
 # global variables
 guess_list = [0 for i in range(3)]
@@ -499,11 +498,6 @@ def handle_msg(msg_type, msg_text):
         # Store these in a debug file once app in production ready
         x = 1
         #print(msg_text)
-
-#################################################
-def copyResults():
-    copyText = document.getElementById("endScore").innerHTML
-    pyperclip.copy(copyText)
 
 #################################################
 
