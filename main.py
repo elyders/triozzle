@@ -58,8 +58,8 @@ def reset_page():
     gamebarbottom = document.getElementById("gamebarbottom")
     gamebarbottom.style.display = "none"
     
-    reset_header()
     main()
+    reset_header()
 
 #################################################
 def setup_game():
