@@ -43,6 +43,20 @@ def update_timer(timerElement):
     timerElement.write(round(timerVal,2))
 
 #################################################
+def reset_page():
+    startBtn = document.getElementById("startOverlay")
+    startBtn.style.display = "inline"
+
+    grid = document.getElementById("grid")
+    grid.style.display = "none"
+
+    gamebartop = document.getElementById("gamebartop")
+    gamebartop.style.display = "none"
+
+    gamebarbottom = document.getElementById("gamebarbottom")
+    gamebarbottom.style.display = "none"
+
+#################################################
 def setup_game():
     global game_status
     global curr_round
