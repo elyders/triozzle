@@ -47,7 +47,7 @@ def reset_page():
     document.getElementById("endOverlay").style.width = "0";
 
     startBtn = document.getElementById("startOverlay")
-    startBtn.style.display = "inline"
+    startBtn.style.display = "flex"
 
     grid = document.getElementById("grid")
     grid.style.display = "none"
