@@ -35,15 +35,6 @@ async def main():
     main = document.getElementById("main")
     main.style.display = "inline"
 
-#################################################
-def update_timer(timerElement):
-    global timerVal
-
-    timerVal += .1
-    timerElement.write(round(timerVal,2))
-
-#################################################
-def reset_page():
     document.getElementById("endOverlay").style.width = "0";
 
     startBtn = document.getElementById("startOverlay")
@@ -58,8 +49,12 @@ def reset_page():
     gamebarbottom = document.getElementById("gamebarbottom")
     gamebarbottom.style.display = "none"
     
-    main()
-    reset_header()
+#################################################
+def update_timer(timerElement):
+    global timerVal
+
+    timerVal += .1
+    timerElement.write(round(timerVal,2))
 
 #################################################
 def setup_game():
@@ -232,7 +227,6 @@ def crt_game_result(numcells):
     game_result = chosenValue1 * chosenValue2 + (chosenValue3 * plus_minus)
     handle_msg(0,["Chosen:",chosenValue1,"*",chosenValue2,plus_minus,chosenValue3,"=",game_result])
 
-    
     return game_result
 
 #################################################
@@ -261,6 +255,8 @@ def start_game(type):
     global rng
     global game_type
 
+    handle_msg(0,["Type:",type])
+    handle_msg(0,["Status:",game_status])
     if type == 'practice':
         game_type = type
         rng = np.random.default_rng()
@@ -521,7 +517,7 @@ def handle_msg(msg_type, msg_text):
     else:
         # Store these in a debug file once app in production ready
         x = 1
-        #print(msg_text)
+        print(msg_text)
 
 #################################################
 def copyResults():
