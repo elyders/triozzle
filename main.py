@@ -34,20 +34,6 @@ async def main():
     
     main = document.getElementById("main")
     main.style.display = "inline"
-
-    document.getElementById("endOverlay").style.width = "0";
-
-    startBtn = document.getElementById("startOverlay")
-    startBtn.style.display = "flex"
-
-    grid = document.getElementById("grid")
-    grid.style.display = "none"
-
-    gamebartop = document.getElementById("gamebartop")
-    gamebartop.style.display = "none"
-
-    gamebarbottom = document.getElementById("gamebarbottom")
-    gamebarbottom.style.display = "none"
     
 #################################################
 def update_timer(timerElement):
@@ -64,7 +50,21 @@ def setup_game():
     global timerElement
 
     game_status = "setting"
-    
+
+    document.getElementById("endOverlay").style.width = "0";
+
+    startBtn = document.getElementById("startOverlay")
+    startBtn.style.display = "flex"
+
+    grid = document.getElementById("grid")
+    grid.style.display = "none"
+
+    gamebartop = document.getElementById("gamebartop")
+    gamebartop.style.display = "none"
+
+    gamebarbottom = document.getElementById("gamebarbottom")
+    gamebarbottom.style.display = "none"
+
     # Loop thru every row/column combo and hide each btn
     # Rows are 1-10; Columns are 0-9
     rows_cols = 10
