@@ -35,7 +35,7 @@ async def main():
     main = document.getElementById("main")
     main.style.display = "inline"
 
-        handle_msg(1,"Version:202310091534")
+    handle_msg(1,"Version:202310091534")
 
 #################################################
 def update_timer(timerElement):
