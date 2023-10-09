@@ -44,6 +44,8 @@ def update_timer(timerElement):
 
 #################################################
 def reset_page():
+    document.getElementById("endOverlay").style.width = "0";
+
     startBtn = document.getElementById("startOverlay")
     startBtn.style.display = "inline"
 
