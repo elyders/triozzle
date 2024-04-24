@@ -26,6 +26,7 @@ rng = np.random.default_rng(rng_seed)
 timerVal = 0
 intervalId = 0
 timerElement = Element("timer")
+g_rows_cols = 7
 
 #################################################
 async def main():
@@ -35,7 +36,7 @@ async def main():
     main = document.getElementById("main")
     main.style.display = "inline"
 
-    handle_msg(1,"Version:202310091534")
+    handle_msg(1,"Version:202404230755")
 
 #################################################
 def update_timer(timerElement):
@@ -50,6 +51,7 @@ def setup_game():
     global curr_round
     global num_of_errors
     global timerElement
+    global g_rows_cols
 
     game_status = "setting"
 
@@ -69,7 +71,7 @@ def setup_game():
 
     # Loop thru every row/column combo and hide each btn
     # Rows are 1-10; Columns are 0-9
-    rows_cols = 10
+    rows_cols = g_rows_cols
     for rowid in range(1,rows_cols+1):
         for colid in range(0,rows_cols):
             btn = Element(f"btn{rowid}{colid}")
@@ -84,8 +86,9 @@ def setup_game():
 
 #################################################
 def crt_grid():
-    numcells = 100
-    rows_cols = 10
+    global g_rows_cols
+
+    rows_cols = g_rows_cols
     
     grid = document.getElementById("grid")
     grid.style.display = "none"
@@ -105,8 +108,11 @@ def crt_grid():
             #btnElement.write(f"{rowid}{colid}") # For testing only
 
 #################################################
-def crt_game_result(numcells):
+def crt_game_result():
     # Create the game_result from any 3 cells in the grid
+    global g_rows_cols
+    
+    num_cells = g_rows_cols * g_rows_cols
     rows_cols = np.round(np.sqrt(numcells)).astype(int)
     rowdirection = None
     coldirection = None
@@ -256,6 +262,7 @@ def start_game(type):
     global timerVal
     global rng
     global game_type
+    global g_rows_cols
 
     handle_msg(0,["Type:",type])
     handle_msg(0,["Status:",game_status])
@@ -271,7 +278,7 @@ def start_game(type):
         end_game()
     else:
         crt_grid()
-        game_result = crt_game_result(100)
+        game_result = crt_game_result()
         if game_result == -999:
             handle_msg(2,"ERROR in crt_game_result")
         elif game_status == "waiting":
@@ -293,7 +300,7 @@ def start_game(type):
 
         # Loop thru every row/column combo and show each btn
         # Rows are 1-10; Columns are 0-9
-        rows_cols = 10
+        rows_cols = g_rows_cols
         for rowid in range(1,rows_cols+1):
             for colid in range(0,rows_cols):
                 btn = Element(f"btn{rowid}{colid}")
@@ -322,13 +329,14 @@ def start_game(type):
 def end_game():
     global game_status
     global game_type
+    global g_rows_cols
 
     # stop timer
     js.clearInterval(intervalId);
     
     # Loop thru every row/column combo and hide each btn
     # Rows are 1-10; Columns are 0-9
-    rows_cols = 10
+    rows_cols = g_rows_cols
     for rowid in range(1,rows_cols+1):
         for colid in range(0,rows_cols):
             btn = Element(f"btn{rowid}{colid}")
