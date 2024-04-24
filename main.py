@@ -113,7 +113,7 @@ def crt_game_result():
     global g_rows_cols
     
     num_cells = g_rows_cols * g_rows_cols
-    rows_cols = np.round(np.sqrt(numcells)).astype(int)
+    rows_cols = np.round(np.sqrt(num_cells)).astype(int)
     rowdirection = None
     coldirection = None
     
