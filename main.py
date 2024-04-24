@@ -100,7 +100,7 @@ def crt_grid():
             btnElement = Element(f"btn{rowid}{colid}")
             btnElement.remove_class("btn_chosen")	
             btnElement.remove_class("btn_shown")	
-            #btnElement.add_class("btn_hidden")	
+            btnElement.add_class("btn_grid")	
 
             # Create random value (0-9) for btn
             cell_num = rng.integers(0, 10)
