@@ -66,7 +66,7 @@ def add_button(rowid, colid):
     btnElement.innerText = f"{cell_num}"
     #btnElement.write(f"{rowid}{colid}") # For testing only
 
-    gridElement.append(btnElement)
+    gridElement.appendChild(btnElement)
 
 #################################################
 # Remove grid button element from grid
@@ -76,7 +76,7 @@ def del_button(rowid, colid):
     gridElement = document.getElementById("grid")
     btnElement = document.getElementById("btn_id")
 
-    gridElement.remove(btnElement)
+    gridElement.removeChild(btnElement)
 
 #################################################
 def update_timer(timerElement):
