@@ -47,7 +47,7 @@ async def main():
     main = document.getElementById("main")
     main.style.display = "inline"
 
-    handle_msg(1,"Version:202404230755")
+    handle_msg(1,"Version:202404251309")
 
 #################################################
 # Create new grid button element and add to grid
@@ -278,10 +278,10 @@ def reset_header():
     game_resultElement.write("??")
 
     roundElement = Element("curr_round")
-    roundElement.write("0")
+    roundElement.write(f"{curr_round}")
 
     errElement = Element("num_of_errors")
-    errElement.write("0")
+    errElement.write(f"{num_of_errors}")
 
     timerElement.write(0.0)
 #################################################
