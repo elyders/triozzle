@@ -56,7 +56,7 @@ def add_button(rowid, colid):
 
     gridElement = document.getElementById("grid")
     btnElement = document.createElement("button")
-    btnElement.classList = "py-button grey_btn"
+    btnElement.classList = "py-button"
     btnElement.setAttribute('id', btn_id)          
     btnElement.setAttribute('py-click', f"btn_click({rowid}{colid})")          
 
@@ -241,11 +241,11 @@ def crt_game_result():
     handle_msg(0,[cellrow3,cellcol3])
     
     try:
-        Element(f"btn{cellrow1}{cellcol1}").add_class("btn_result")
-        Element(f"btn{cellrow2}{cellcol2}").add_class("btn_result")
-        Element(f"btn{cellrow3}{cellcol3}").add_class("btn_result")
+        Element(f"btn{cellrow1}{cellcol1}").add_class("yellow_btn")
+        Element(f"btn{cellrow2}{cellcol2}").add_class("yellow_btn")
+        Element(f"btn{cellrow3}{cellcol3}").add_class("yellow_btn")
     except:
-        handle_msg(2,"An exception occurred assigning btn_result to cells")
+        handle_msg(2,"An exception occurred assigning yellow_btn to cells")
         return -1
     
     # Now calculate game_result from chosen cells
