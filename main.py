@@ -54,10 +54,9 @@ def add_button():
     parent = document.getElementById("test_div")
     btn = document.createElement("button")
     btn.classList = "bg-green-500 hover:bg-green-500 text-gray-800 font-bold py-1 px-2 rounded-l"
-    <!-- btn.setAttribute('pys-onClick', 'add_button') -->
     btn.setAttribute('id', 'btnx')          
     btn.innerText = "new_button"
-    Element("btnx", btn).element.addEventListener("click",  create_proxy(add_button))
+    Element("btnx", btn).element.addEventListener("py-click",  create_proxy(add_button))
     parent.append(btn)
 
 #################################################
