@@ -109,20 +109,10 @@ def setup_game():
     gamebarbottom = document.getElementById("gamebarbottom")
     gamebarbottom.style.display = "none"
 
-    # Loop thru every row/column combo and hide each btn
-    # Rows are 1-10; Columns are 0-9
-    rows_cols = g_rows_cols
-    for rowid in range(1,rows_cols+1):
-        for colid in range(0,rows_cols):
-            btn = Element(f"btn{rowid}{colid}")
-            btn.remove_class("btn_shown")	
-            btn.add_class("btn_hidden")	
-
     game_status = "waiting"
     curr_round = 0
     num_of_errors = 0
     timerElement.write(0.0)
-    
 
 #################################################
 def crt_grid():
