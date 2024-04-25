@@ -63,7 +63,7 @@ def add_button(rowid, colid):
     # Create random value (0-9) for btn
     cell_num = rng.integers(0, 10)
     #btnElement.write(f"{cell_num}")
-    btnElement.innerText = "f"{cell_num}"
+    btnElement.innerText = f"{cell_num}"
     #btnElement.write(f"{rowid}{colid}") # For testing only
 
     gridElement.append(btnElement)
