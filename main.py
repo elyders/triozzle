@@ -139,7 +139,7 @@ def crt_game_result():
     rowdirection = None
     coldirection = None
     
-    # Rows are 1-10; Columns are 0-9
+    # Rows start at 1; Columns start at 0
     cellrow1 = rng.integers(1, rows_cols + 1)
     cellcol1 = rng.integers(0, rows_cols)
     handle_msg(0,f"Result:{cellrow1},{cellcol1}")
@@ -154,8 +154,26 @@ def crt_game_result():
         handle_msg(0,["Changed:",cellrow1,cellcol1])
     
     # Get the row/column direction for next cell (-1=move up/left; 0=same row/column; 1=move down/right)
+    # Handle some of 3x3 grid options separately
+    if rows_cols == 3:
+        # Left cell can only move right
+        if cellrow1 == 2 and cellcol1 == 0:
+            coldirection = 1
+            rowdirection = 0
+        # Top cell can only move down
+        elif cellrow1 == 1 and cellcol1 == 1:
+            coldirection = 0
+            rowdirection = 1
+        # Bottom cell can only move up
+        elif cellrow1 == 3 and cellcol1 == 1:
+            coldirection = 0
+            rowdirection = -1
+        # Right cell can only move left
+        elif cellrow1 == 2 and cellcol1 == 2:
+            coldirection = -1
+            rowdirection = 0
     # Handle the corners: The 4 cells that make up a corner can only move away from corner
-    if cellrow1 <= 2 and cellcol1 <= 1:
+    elif cellrow1 <= 2 and cellcol1 <= 1:
         # top left corner can only move down or right
         coldirection = rng.choice([1, 0])
         if coldirection == 0: # if column is not moving, row must move
@@ -183,24 +201,6 @@ def crt_game_result():
             rowdirection = -1
         else:
             rowdirection = rng.choice([-1, 0])
-    # Handle some of 3x3 grid options separately
-    elif rows_cols == 3:
-        # Left cell can only move right
-        if cellrow1 == 2 and cellcol1 == 0:
-            coldirection = 1
-            rowdirection = 0
-        # Top cell can only move down
-        elif cellrow1 == 1 and cellcol1 == 1:
-            coldirection = 0
-            rowdirection = 1
-        # Bottom cell can only move up
-        elif cellrow1 == 3 and cellcol1 == 1:
-            coldirection = 0
-            rowdirection = -1
-        # Right cell can only move left
-        elif cellrow1 == 2 and cellcol1 == 2:
-            coldirection = -1
-            rowdirection = 0
     else:
         # if at last 2 columns, can only move to left/center (-1/0)
         if cellcol1 >= rows_cols - 2:
