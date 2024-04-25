@@ -297,7 +297,7 @@ def start_game(type, level):
 
     # Setup grid size according to game: Easy = 3, Medium = 5, Hard = 7
     g_rows_cols = level
-    grid = document.getElementById("grid")
+    grid = Element("grid")
     grid.remove_class("gridS")	
     grid.remove_class("gridM")	
     grid.remove_class("gridL")	
