@@ -75,7 +75,9 @@ def del_button(rowid, colid):
 
     gridElement = document.getElementById("grid")
     btnElement = document.getElementById(btn_id)
-
+    if btnElement is None:
+        break
+    
     gridElement.removeChild(btnElement)
 
 #################################################
