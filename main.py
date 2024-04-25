@@ -56,7 +56,7 @@ def add_button(rowid, colid):
 
     gridElement = document.getElementById("grid")
     btnElement = document.createElement("button")
-    btnElement.classList = "py-button btn_grid"
+    btnElement.classList = "py-button grey_btn"
     btnElement.setAttribute('id', btn_id)          
     btnElement.setAttribute('py-click', f"btn_click({rowid}{colid})")          
 
