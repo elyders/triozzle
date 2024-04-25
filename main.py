@@ -240,13 +240,14 @@ def crt_game_result():
     cellcol3 = cellcol2 + coldirection
     handle_msg(0,[cellrow3,cellcol3])
     
-    try:
-        Element(f"btn{cellrow1}{cellcol1}").add_class("yellow_btn")
-        Element(f"btn{cellrow2}{cellcol2}").add_class("yellow_btn")
-        Element(f"btn{cellrow3}{cellcol3}").add_class("yellow_btn")
-    except:
-        handle_msg(2,"An exception occurred assigning yellow_btn to cells")
-        return -1
+    # For testing only
+#    try:
+#        Element(f"btn{cellrow1}{cellcol1}").add_class("yellow_btn")
+#        Element(f"btn{cellrow2}{cellcol2}").add_class("yellow_btn")
+#        Element(f"btn{cellrow3}{cellcol3}").add_class("yellow_btn")
+#    except:
+#        handle_msg(2,"An exception occurred assigning yellow_btn to cells")
+#        return -1
     
     # Now calculate game_result from chosen cells
     #if gLevel == 0:
