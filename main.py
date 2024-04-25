@@ -155,23 +155,22 @@ def crt_game_result():
     
     # Get the row/column direction for next cell (-1=move up/left; 0=same row/column; 1=move down/right)
     # Handle some of 3x3 grid options separately
-    if rows_cols == 3:
+    if rows_cols == 3 and cellrow1 == 2 and cellcol1 == 0:
         # Left cell can only move right
-        if cellrow1 == 2 and cellcol1 == 0:
-            coldirection = 1
-            rowdirection = 0
+        coldirection = 1
+        rowdirection = 0
+    elif rows_cols == 3 and cellrow1 == 1 and cellcol1 == 1:
         # Top cell can only move down
-        elif cellrow1 == 1 and cellcol1 == 1:
-            coldirection = 0
-            rowdirection = 1
+        coldirection = 0
+        rowdirection = 1
+    elif rows_cols == 3 and cellrow1 == 3 and cellcol1 == 1:
         # Bottom cell can only move up
-        elif cellrow1 == 3 and cellcol1 == 1:
-            coldirection = 0
-            rowdirection = -1
+        coldirection = 0
+        rowdirection = -1
+    elif rows_cols == 3 and cellrow1 == 2 and cellcol1 == 2:
         # Right cell can only move left
-        elif cellrow1 == 2 and cellcol1 == 2:
-            coldirection = -1
-            rowdirection = 0
+        coldirection = -1
+        rowdirection = 0
     # Handle the corners: The 4 cells that make up a corner can only move away from corner
     elif cellrow1 <= 2 and cellcol1 <= 1:
         # top left corner can only move down or right
