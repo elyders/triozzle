@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 import asyncio
 from pyodide.ffi import to_js
 import pyclip as pc
+from pyodide.ffi import create_proxy
 
 # global variables
 guess_list = [0 for i in range(3)]
