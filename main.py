@@ -69,6 +69,16 @@ def add_button(rowid, colid):
     gridElement.append(btnElement)
 
 #################################################
+# Remove grid button element from grid
+def del_button(rowid, colid):
+    btn_id = f"btn{rowid}{colid}"
+
+    gridElement = document.getElementById("grid")
+    btnElement = document.getElementById("btn_id")
+
+    gridElement.remove(btnElement)
+
+#################################################
 def update_timer(timerElement):
     global timerVal
 
@@ -127,6 +137,7 @@ def crt_grid():
     # Rows are 1-10; Columns are 0-9
     for rowid in range(1,rows_cols+1):
         for colid in range(0,rows_cols):
+            del_button(rowid,colid)
             add_button(rowid,colid)
 
 #################################################
