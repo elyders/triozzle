@@ -50,14 +50,23 @@ async def main():
     handle_msg(1,"Version:202404230755")
 
 #################################################
-def add_button():
-    parent = document.getElementById("test_div")
-    btn = document.createElement("button")
-    btn.classList = "py-button btn_chosen"
-    btn.setAttribute('id', 'btnx')          
-    btn.setAttribute('py-click', 'add_button()')          
-    btn.innerText = "new_button"
-    parent.append(btn)
+# Create new grid button element and add to grid
+def add_button(rowid, colid):
+    btn_id = f"btn{rowid}{colid}"
+
+    gridElement = document.getElementById("grid")
+    btnElement = document.createElement("button")
+    btnElement.classList = "py-button btn_grid"
+    btnElement.setAttribute('id', btn_id)          
+    btnElement.setAttribute('py-click', 'btn_click(10)')          
+    #btnElement.innerText = "new_button"
+
+    # Create random value (0-9) for btn
+    cell_num = rng.integers(0, 10)
+    btnElement.write(f"{cell_num}")
+    #btnElement.write(f"{rowid}{colid}") # For testing only
+
+    gridElement.append(btnElement)
 
 #################################################
 def update_timer(timerElement):
@@ -118,15 +127,7 @@ def crt_grid():
     # Rows are 1-10; Columns are 0-9
     for rowid in range(1,rows_cols+1):
         for colid in range(0,rows_cols):
-            btnElement = Element(f"btn{rowid}{colid}")
-            btnElement.remove_class("btn_chosen")	
-            btnElement.remove_class("btn_shown")	
-            btnElement.add_class("btn_grid")	
-
-            # Create random value (0-9) for btn
-            cell_num = rng.integers(0, 10)
-            btnElement.write(f"{cell_num}")
-            #btnElement.write(f"{rowid}{colid}") # For testing only
+            add_button(rowid,colid)
 
 #################################################
 def crt_game_result():
