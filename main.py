@@ -50,10 +50,9 @@ async def main():
 
 #################################################
 def add_button():
-    console.log("function is called!")
     parent = document.getElementById("test_div")
     btn = document.createElement("button")
-    btn.classList = "bg-green-500 hover:bg-green-500 text-gray-800 font-bold py-1 px-2 rounded-l"
+    btn.classList = "py-button btn_chosen"
     btn.setAttribute('id', 'btnx')          
     btn.innerText = "new_button"
     Element("btnx", btn).element.addEventListener("py-click",  create_proxy(add_button))
