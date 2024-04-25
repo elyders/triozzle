@@ -57,7 +57,6 @@ def add_button():
     btn.setAttribute('id', 'btnx')          
     btn.setAttribute('py-click', 'add_button()')          
     btn.innerText = "new_button"
-    btn.addEventListener("py-click",  create_proxy(add_button))
     parent.append(btn)
 
 #################################################
