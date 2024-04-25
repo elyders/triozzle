@@ -1,3 +1,13 @@
+##################################################
+# NOTES:
+# 
+# TODO:
+#   <back> button for practice
+#   Dynamic grid size?
+#   No timer/rounds for practice: just avg
+#   Show avg time in results
+#   Show images on "how to play" section
+##################################################
 import numpy as np
 from js import document, setInterval, clearInterval
 import time
@@ -37,6 +47,18 @@ async def main():
     main.style.display = "inline"
 
     handle_msg(1,"Version:202404230755")
+
+#################################################
+def add_button(self):
+    console.log("function is called!")
+    parent = document.getElementById("test_div")
+    btn = document.createElement("button")
+    btn.classList = "bg-green-500 hover:bg-green-500 text-gray-800 font-bold py-1 px-2 rounded-l"
+    <!-- btn.setAttribute('pys-onClick', 'add_button') -->
+    btn.setAttribute('id', 'btnx')          
+    btn.innerText = "new_button"
+    Element("btnx", btn).element.addEventListener("click",  create_proxy(add_button))
+    parent.append(btn)
 
 #################################################
 def update_timer(timerElement):
