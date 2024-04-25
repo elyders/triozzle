@@ -55,8 +55,9 @@ def add_button():
     btn = document.createElement("button")
     btn.classList = "py-button btn_chosen"
     btn.setAttribute('id', 'btnx')          
+    btn.setAttribute('py-click', 'add_button()')          
     btn.innerText = "new_button"
-    Element("btnx", btn).element.addEventListener("py-click",  create_proxy(add_button))
+    btn.addEventListener("py-click",  create_proxy(add_button))
     parent.append(btn)
 
 #################################################
