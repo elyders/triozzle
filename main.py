@@ -59,11 +59,11 @@ def add_button(rowid, colid):
     btnElement.classList = "py-button btn_grid"
     btnElement.setAttribute('id', btn_id)          
     btnElement.setAttribute('py-click', 'btn_click(10)')          
-    #btnElement.innerText = "new_button"
 
     # Create random value (0-9) for btn
     cell_num = rng.integers(0, 10)
-    btnElement.write(f"{cell_num}")
+    #btnElement.write(f"{cell_num}")
+    btnElement.innerText = "f"{cell_num}"
     #btnElement.write(f"{rowid}{colid}") # For testing only
 
     gridElement.append(btnElement)
