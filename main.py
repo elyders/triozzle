@@ -521,9 +521,10 @@ def update_header(correct):
     global errors_allowed
     global game_status
     global game_type
+    global g_rows_cols
 
     if correct:
-        start_game(game_type)
+        start_game(game_type,g_rows_cols)
     else:
         num_of_errors += 1
         if num_of_errors > errors_allowed:
