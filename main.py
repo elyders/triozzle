@@ -91,7 +91,6 @@ def setup_game():
     global curr_round
     global num_of_errors
     global timerElement
-    global g_rows_cols
 
     game_status = "setting"
 
@@ -275,7 +274,7 @@ def reset_header():
 
     timerElement.write(0.0)
 #################################################
-def start_game(type):
+def start_game(type, level):
     global start_time
     global game_status
     global curr_round
@@ -288,12 +287,26 @@ def start_game(type):
     global g_rows_cols
 
     handle_msg(0,["Type:",type])
+    handle_msg(0,["Level:",level])
     handle_msg(0,["Status:",game_status])
     if type == 'practice':
         game_type = type
         rng = np.random.default_rng()
 
     handle_msg(0,f"Seed:{rng_seed}")
+
+    # Setup grid size according to game: Easy = 3, Medium = 5, Hard = 7
+    g_rows_cols = level
+    grid = document.getElementById("grid")
+    grid.remove_class("gridS")	
+    grid.remove_class("gridM")	
+    grid.remove_class("gridL")	
+    if g_rows_cols == 3:
+        grid.add_class("gridS")	
+    elif g_rows_cols == 5:
+        grid.add_class("gridM")	
+    else:
+        grid.add_class("gridL")
 
     curr_round += 1
     if curr_round > total_rounds:
