@@ -1,0 +1,6 @@
+name = "Triozzle"
+description = "Solve for D, where A * B +/- C = D"
+packages = ['numpy','pyclip']
+terminal = false
+[splashscreen]
+enabled = false
