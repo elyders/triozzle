@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes } from 'react-router'
-import HomePage from './Home'
+import HomePage from './Home.tsx'
 
 export default function App() {
   return (
