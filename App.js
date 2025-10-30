@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './main/Home';
+import HomePage from "https://raw.githubusercontent.com/elyders/triozzle/refs/heads/main/Home.js";
 
 export default function App() {
   return React.createElement(
