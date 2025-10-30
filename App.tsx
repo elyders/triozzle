@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes } from 'react-router'
-import HomePage from './pages/Home'
+import HomePage from './Home'
 
 export default function App() {
   return (
