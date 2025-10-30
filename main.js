@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import './shadcn.css'
-import App from './App'
+import App from './App.tsx'
 import React from 'react'
 
 const root = createRoot(document.getElementById('app'))
