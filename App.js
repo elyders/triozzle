@@ -9,7 +9,7 @@ export default function App() {
     React.createElement(
       Routes,
       null,
-      React.createElement(Route, { path: "/", element: React.createElement(HomePage, null) })
+      React.createElement(Route, { path: '/', element: React.createElement(HomePage, null) })
     )
   );
 }
